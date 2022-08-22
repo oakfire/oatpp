@@ -353,7 +353,7 @@ v_int64 Caret::StateSaveGuard::getSavedErrorCode() {
   v_int64 Caret::parseInt(int base) {
     char* end;
     char* start = (char*)&m_data[m_pos];
-    v_int64 result = (v_int64)std::strtoll(start, &end, base);
+    v_int64 result = (v_int64)strtoll(start, &end, base);
     if(start == end){
       m_errorMessage = ERROR_INVALID_INTEGER;
     }
@@ -364,7 +364,7 @@ v_int64 Caret::StateSaveGuard::getSavedErrorCode() {
   v_uint64 Caret::parseUnsignedInt(int base) {
     char* end;
     char* start = (char*)&m_data[m_pos];
-    v_uint64 result = (v_uint64)std::strtoull(start, &end, base);
+    v_uint64 result = (v_uint64)strtoull(start, &end, base);
     if(start == end){
       m_errorMessage = ERROR_INVALID_INTEGER;
     }
@@ -375,7 +375,7 @@ v_int64 Caret::StateSaveGuard::getSavedErrorCode() {
   v_float32 Caret::parseFloat32(){
     char* end;
     char* start = (char*)&m_data[m_pos];
-    v_float32 result = std::strtof(start , &end);
+    v_float32 result = strtof(start , &end);
     if(start == end){
       m_errorMessage = ERROR_INVALID_FLOAT;
     }
@@ -386,7 +386,7 @@ v_int64 Caret::StateSaveGuard::getSavedErrorCode() {
   v_float64 Caret::parseFloat64(){
     char* end;
     char* start = (char*)&m_data[m_pos];
-    v_float64 result = std::strtod(start , &end);
+    v_float64 result = strtod(start , &end);
     if(start == end){
       m_errorMessage = ERROR_INVALID_FLOAT;
     }

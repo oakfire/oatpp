@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION 3.1 FATAL_ERROR)
+cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
+
+
 
 file(STRINGS "${CMAKE_CURRENT_LIST_DIR}/src/oatpp/core/base/Environment.hpp" OATPP_VERSION_MACRO REGEX "#define OATPP_VERSION \"[0-9]+.[0-9]+.[0-9]+\"$")
 string(REGEX REPLACE "#define OATPP_VERSION \"([0-9]+.[0-9]+.[0-9]+)\"$" "\\1" oatpp_VERSION "${OATPP_VERSION_MACRO}")
@@ -12,7 +14,28 @@ set(OATPP_THIS_MODULE_VERSION ${oatpp_VERSION}) ## version of the module (also s
 
 ###################################################################################################
 
-project(oatpp VERSION ${OATPP_THIS_MODULE_VERSION} LANGUAGES CXX)
+set(PROJECT_VERSION  ${OATPP_THIS_MODULE_VERSION})
+set(CMAKE_PROJECT_VERSION  ${OATPP_THIS_MODULE_VERSION})
+
+project(oatpp)
+
+enable_language(CXX)
+
+macro(use_cxx11)
+if (CMAKE_VERSION VERSION_LESS "3.1")
+  if (CMAKE_COMPILER_IS_GNUCXX)
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+  else ()
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+  endif ()
+else ()
+  set (CMAKE_CXX_STANDARD 11)
+endif ()
+endmacro(use_cxx11)
+
+use_cxx11()
+
+
 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 option(OATPP_INSTALL "Create installation target for oat++" ON)

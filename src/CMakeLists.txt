@@ -300,6 +300,10 @@ if (MSVC)
     target_compile_options(oatpp PRIVATE /permissive-)
 endif()
 
+set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+set(CMAKE_HAVE_THREADS_LIBRARY 1)
+set(CMAKE_USE_WIN32_THREADS_INIT 0)
+set(CMAKE_USE_PTHREADS_INIT 1)
 set(CMAKE_THREAD_PREFER_PTHREAD ON)
 
 find_package(Threads REQUIRED)

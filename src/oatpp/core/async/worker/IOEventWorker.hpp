@@ -35,23 +35,23 @@
 
 #if !defined(OATPP_IO_EVENT_INTERFACE)
 
-  #if defined(__linux__) || defined(linux) || defined(__linux)
+  // #if defined(__linux__) || defined(linux) || defined(__linux)
 
-    #define OATPP_IO_EVENT_INTERFACE "epoll"
-    #define OATPP_IO_EVENT_INTERFACE_EPOLL
+  //   #define OATPP_IO_EVENT_INTERFACE "epoll"
+  //   #define OATPP_IO_EVENT_INTERFACE_EPOLL
 
-  #elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || \
-        defined(__bsdi__) || defined(__DragonFly__)|| defined(__APPLE__)
+  // #elif defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__) || \
+  //       defined(__bsdi__) || defined(__DragonFly__)|| defined(__APPLE__)
 
-    #define OATPP_IO_EVENT_INTERFACE "kqueue"
-    #define OATPP_IO_EVENT_INTERFACE_KQUEUE
+  //   #define OATPP_IO_EVENT_INTERFACE "kqueue"
+  //   #define OATPP_IO_EVENT_INTERFACE_KQUEUE
 
-  #else
+  // #else
 
     #define OATPP_IO_EVENT_INTERFACE "not-implemented(windows)"
     #define OATPP_IO_EVENT_INTERFACE_STUB
 
-  #endif
+  // #endif
 
 #endif
 

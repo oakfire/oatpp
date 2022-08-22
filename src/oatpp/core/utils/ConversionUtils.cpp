@@ -30,48 +30,48 @@ namespace oatpp { namespace utils { namespace conversion {
   
   v_int32 strToInt32(const char* str){
     char* end;
-    return (v_int32) std::strtol(str, &end, 10);
+    return (v_int32) strtol(str, &end, 10);
   }
   
   v_int32 strToInt32(const oatpp::String& str, bool& success){
     char* end;
-    v_int32 result = (v_int32) std::strtol(str->data(), &end, 10);
+    v_int32 result = (v_int32) strtol(str->data(), &end, 10);
     success = (((v_buff_size)end - (v_buff_size)str->data()) == str->size());
     return result;
   }
 
   v_uint32 strToUInt32(const char* str){
     char* end;
-    return (v_uint32) std::strtoul(str, &end, 10);
+    return (v_uint32) strtoul(str, &end, 10);
   }
 
   v_uint32 strToUInt32(const oatpp::String& str, bool& success){
     char* end;
-    v_uint32 result = (v_uint32) std::strtoul(str->data(), &end, 10);
+    v_uint32 result = (v_uint32) strtoul(str->data(), &end, 10);
     success = (((v_buff_size)end - (v_buff_size)str->data()) == str->size());
     return result;
   }
   
   v_int64 strToInt64(const char* str){
     char* end;
-    return std::strtoll(str, &end, 10);
+    return strtoll(str, &end, 10);
   }
   
   v_int64 strToInt64(const oatpp::String& str, bool& success){
     char* end;
-    v_int64 result = std::strtoll(str->data(), &end, 10);
+    v_int64 result = strtoll(str->data(), &end, 10);
     success = (((v_buff_size)end - (v_buff_size)str->data()) == str->size());
     return result;
   }
 
   v_uint64 strToUInt64(const char* str){
     char* end;
-    return std::strtoull(str, &end, 10);
+    return strtoull(str, &end, 10);
   }
 
   v_uint64 strToUInt64(const oatpp::String& str, bool& success){
     char* end;
-    v_uint64 result = std::strtoull(str->data(), &end, 10);
+    v_uint64 result = strtoull(str->data(), &end, 10);
     success = (((v_buff_size)end - (v_buff_size)str->data()) == str->size());
     return result;
   }
@@ -166,24 +166,24 @@ namespace oatpp { namespace utils { namespace conversion {
   
   v_float32 strToFloat32(const char* str){
     char* end;
-    return std::strtof(str, &end);
+    return strtof(str, &end);
   }
   
   v_float32 strToFloat32(const oatpp::String& str, bool& success) {
     char* end;
-    v_float32 result = std::strtof(str->data(), &end);
+    v_float32 result = strtof(str->data(), &end);
     success = (((v_buff_size)end - (v_buff_size)str->data()) == str->size());
     return result;
   }
   
   v_float64 strToFloat64(const char* str){
     char* end;
-    return std::strtod(str, &end);
+    return strtod(str, &end);
   }
   
   v_float64 strToFloat64(const oatpp::String& str, bool& success) {
     char* end;
-    v_float64 result = std::strtod(str->data(), &end);
+    v_float64 result = strtod(str->data(), &end);
     success = (((v_buff_size)end - (v_buff_size)str->data()) == str->size());
     return result;
   }
