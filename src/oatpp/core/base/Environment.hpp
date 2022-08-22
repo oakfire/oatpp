@@ -36,6 +36,7 @@
 #include <memory>
 #include <stdexcept>
 #include <cstdlib>
+#include <cstdarg>
 
 #define OATPP_VERSION "1.3.0"
 
